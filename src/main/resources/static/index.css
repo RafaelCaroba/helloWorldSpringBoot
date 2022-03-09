@@ -1,0 +1,99 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: aliceblue;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background:#1B2029;
+    padding-left: 6%;
+    padding-right: 6%;
+    box-sizing: border-box;
+}
+ .navbar{
+    height: 12%;
+    display: flex;
+    align-items: center;
+
+ }
+ .logo{
+     width: 80px;
+     padding-top: .5rem;
+     cursor: pointer;
+
+ }
+.menu-icon{
+    cursor: pointer;
+    width: 40px;
+    margin-left: 40px;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul li{
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 60px;
+
+}
+nav ul li a{
+    text-decoration: none;
+    color:aliceblue
+}
+.row{
+    display: flex;
+    height: 88%;
+    align-items: center;
+    gap: 32px;
+}
+.col{
+    flex-basis: 50%;
+    
+}
+.col1{
+margin-left: 5em;    
+}
+h1{
+    font-size: 80px;
+
+}
+p{
+    font-size: 12px;
+    line-height: 15px;
+}
+button{
+    width: 180px;
+    
+    background: darkslateblue;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-top: 1.5rem;
+    font-size: 12px;
+    padding: 12px 0;
+}
+.card{
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background: blueviolet;
+    background-position: center;
+    background-size: cover;
+    transition: .7s ease-in;
+}
+.card:hover{
+    transform: translateY(-10px);
+
+}
+h5{
+    text-shadow: 0 0 5px black;
+}
