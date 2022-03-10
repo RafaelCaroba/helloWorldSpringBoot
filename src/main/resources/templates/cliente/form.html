@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de clientere</title>
+	<style type="text/css">
+		body {
+	display: flex;
+	flex-direction: column;
+}
+	</style>
 </head>
 <body>
 	<form action="" method="post">
+	
+		<input type="hidden" name="id" th:value="${cliente?.id}">
+
+		<label for="nome"> 
+		<span>Nome:</span> 
+		<input type="text" name="nome" th:value="${cliente?.nome}" required="required">
+		</label> 
 		
-		<label for="nome">
-		<span>Nome:</span>
-		<input type="text" name="nome" required="required">
+		<label for="cpf"> 
+		<span>Cpf:</span> 
+		<input type="text"
+			name="cpf" th:value="${cliente?.cpf}" required="required">
+		</label> 
+		
+		<label for="email"> 
+		<span>email</span> 
+		<input type="email"
+			name="email" th:value="${cliente?.email}" required="required">
 		</label>
-		
-		<label for="cpf">
-		<span>Cpf:</span>
-		<input type="text" name="cpf" required="required">
-		</label>
-		
-		<label for="email">
-		<span>email</span>
-		<input type="email" name="email" required="required">
-		</label>
-		
+
 		<button type="submit">Salvar</button>
 	</form>
 </body>

@@ -15,10 +15,10 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(unique = true, columnDefinition = "VARCHAR(100)", nullable = false)
+	@Column(columnDefinition = "VARCHAR(100)", nullable = false)
 	private String nome;
 	
-	@Column(unique = true, columnDefinition = "VARCHAR(11)" ) // ou length = 11
+	 @Column(unique = true, columnDefinition = "VARCHAR(11)" ) // ou length = 11
 	private String cpf;
 	
 	private String email;

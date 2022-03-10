@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de Produtoss</title>
+<link rel="stylesheet" href="/css/listaCliente.css">
+</head>
+<body>
+	<span th:text="${produtos.size()}"></span>
+	<table border="1">
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Preço</th>
+			<th>Estoque</th>
+			<th>Alterar</th>
+			<th>Excluir</th>
+		</tr>
+		
+		<tr th:each="p: ${produtos}">
+			<td th:text="${p.id}"></td>
+			<td th:text="${p.nome}"></td>
+			<td th:text="${p.preco}"></td>
+			<td th:text="${p.estoque}"></td>
+			<!-- <td th:text=""></td> -->
+			<td><a th:href="@{/alterarProduto(id=${p.id})}">Alterar</a></td>
+			<td><a th:href="@{/excluirProduto(id=${p.id})}">Excluir</a></td>
+		</tr>
+			
+	</table>
+</body>
+</html>

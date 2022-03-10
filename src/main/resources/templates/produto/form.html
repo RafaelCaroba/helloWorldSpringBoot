@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de produto</title>
@@ -7,19 +7,21 @@
 <body>
 	<form action="" method="post">
 		
+		<input type="hidden" th:value="${produto?.id}">
+		
 		<label for="nome">
 		<span>Produto:</span>
-		<input type="text" name="nome" required="required">
+		<input type="text" name="nome" th:value="${produto?.nome}" required="required">
 		</label>
 		
 		<label for="preco">
 		<span>Preço:</span>
-		<input type="text" name="preco" required="required">
+		<input type="text" name="preco" th:value="${produto?.preco}" required="required">
 		</label>
 		
 		<label for="estoque">
 		<span>Estoque:</span>
-		<input type="number" name="estoque" required="required">
+		<input type="number" name="estoque" th:value="${produto?.estoque}" required="required">
 		</label>
 		
 		<button type="submit">Salvar</button>
