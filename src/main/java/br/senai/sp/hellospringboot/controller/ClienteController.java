@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senai.sp.hellospringboot.model.Cliente;
 import br.senai.sp.hellospringboot.repository.ClienteRepository;
@@ -53,9 +54,29 @@ public class ClienteController {
 		return "cliente/buscaCliente";
 	}
 	
-	@RequestMapping(value = "buscarCliente")
-	public String buscarPeloCpf(String cpf, Model model) {
-		model.addAttribute("cliente", repo.findByCpf(cpf));
+	@RequestMapping(value = "buscarClienteCpf")
+	public String buscarPeloCpf(String cpf, Model model, RedirectAttributes attr) {
+		Cliente cliente = repo.findByCpf(cpf);
+		if (cliente == null) {
+			attr.addFlashAttribute("msg", "Cliente não encontrado");
+			return "redirect:formBusca";
+		}
+		model.addAttribute("cliente", cliente);
 		return "forward:formCliente";
 	}
+	
+	@RequestMapping(value = "buscarPorNome")
+	public String buscarPeloNome(String nome, Model model) {
+		model.addAttribute("clientes", repo.procurarPeloNome(nome)); //findByNomeLike("%"+nome+"%")
+		return "cliente/lista";
+	}
+	
+	// método que busca todos os campos a partir de pelo menos UM input preenchido
+	@RequestMapping("buscarTudo")
+	public String buscarTodosCampos(String param, Model model) {
+		model.addAttribute("clientes", repo.procurarTudo(param));
+		return "cliente/lista";
+	}
+	
+	
 }

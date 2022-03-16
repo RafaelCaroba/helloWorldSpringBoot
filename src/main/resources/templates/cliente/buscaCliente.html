@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
 
-	<form action="">
+	<form action="buscarPorNome">
 	<label>
 	<span>Nome</span>
-	<input type="search" name="nomeCliente" placeholder="Digite o nome que deseja buscar">
+	<input type="search" name="nome" placeholder="Digite o nome que deseja buscar">
 	</label>
 	<button type="submit">Buscar</button>
 	</form>
 	
-	<form action="buscarCliente">
+	<form action="buscarClienteCpf">
 	<span>CPF:</span>
 	<input type="search" name="cpf" placeholder="Digite o cpf desejado">
 	<button type="submit">Buscar</button>
 	</form>
+	
+	<form action="buscarTudo">
+	<span>Qualquer:</span>
+	<input type="search" name="param" placeholder="Digite algo para ser buscado em qualquer campo">
+	<button type="submit">Buscar</button>
+	</form>
+	<span style="color:red;" th:text="${msg}"></span>
 </body>
 </html>
