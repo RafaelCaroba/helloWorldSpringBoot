@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.senai.sp.hellospringboot.model.Animal;
 import br.senai.sp.hellospringboot.repository.AnimalRepository;
@@ -29,4 +28,25 @@ public class AnimalController {
 		repoAnimal.save(animal);
 		return "redirect:formAnimal";
 	}
+	
+	@RequestMapping(value = "listaAnimal")
+	public String listarAnimal(Model model) {
+		model.addAttribute("animais", repoAnimal.findAll());
+		return "animal/lista";
+	}
+	
+	@RequestMapping(value = "alterarAnimal")
+	public String alterarAnimal(Model model, Long id) {
+		Animal animal = repoAnimal.findById(id).get();
+		model.addAttribute("animal", animal);
+		return "forward:formAnimal";
+	}
+	
+	@RequestMapping(value = "excluirAnimal")
+	public String excluirAnimal(Long id) {
+		repoAnimal.deleteById(id);
+		return "redirect:listaAnimal";
+	}
+	
+	
 }

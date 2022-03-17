@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista de animais do cliente:</title>
+</head>
+<body>
+
+<input type="text" name="nome" readonly="readonly" th:value="${cliente.nome}">
+
+<span th:text="${animais.size()}"></span>
+	<table border="1">
+		<tr>
+			<th>Código</th>
+			<th>Nome</th>
+			<th>Raça</th>
+			<th>Porte</th>
+			<th>Espécie</th>
+		</tr>
+		
+		<tr th:each="a: ${animais}">
+			<td th:text="${a.codigo}"></td>
+			<td th:text="${a.nome}"></td>
+			<td th:text="${a.raca}"></td>
+			<td th:text="${a.porte}"></td>
+			<td th:text="${a.especie}"></td>
+		</tr>
+	
+	</table>
+
+</body>
+</html>

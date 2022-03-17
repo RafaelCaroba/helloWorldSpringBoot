@@ -15,6 +15,7 @@
 			<th>E-mail</th>
 			<th>Alterar</th>
 			<th>Excluir</th>
+			<th>Ver Animais</th>
 		</tr>
 		
 		<tr th:each="c: ${clientes}">
@@ -25,6 +26,7 @@
 			<!-- <td th:text=""></td> -->
 			<td><a th:href="@{/alterarCliente(id=${c.id})}">Alterar</a></td>
 			<td><a th:href="@{/excluirCliente(id=${c.id})}">Excluir</a></td>
+			<td><a th:href="@{/listaAnimaisDoCliente(id=${c.id})}">Ver Animais</a></td>
 		</tr>
 			
 	</table>

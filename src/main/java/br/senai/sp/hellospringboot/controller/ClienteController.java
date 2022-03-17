@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.senai.sp.hellospringboot.model.Cliente;
+import br.senai.sp.hellospringboot.repository.AnimalRepository;
 import br.senai.sp.hellospringboot.repository.ClienteRepository;
 
 @Controller
@@ -15,6 +16,9 @@ public class ClienteController {
 	
 	@Autowired
 	private ClienteRepository repo;
+	
+	@Autowired
+	private AnimalRepository repoAnimal;
 	
 	// método que retorna uma string - essa string, no caso, é o formulário da app, e o return é o nome do arquivo que ele retorna
 	@RequestMapping(value = "formCliente", method = RequestMethod.GET)
@@ -78,5 +82,11 @@ public class ClienteController {
 		return "cliente/lista";
 	}
 	
+	@RequestMapping(value = "listaAnimaisDoCliente")
+	public String listaAnimaisDoCliente(Model model, Long id) {
+		model.addAttribute("cliente", repo.findById(id).get());
+		model.addAttribute("animais", repoAnimal.findByClienteId(id));
+		return "cliente/listaAnimais";
+	}
 	
 }
